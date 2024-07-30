@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+        
+        form{
+            text-align: center;
+            background-color: rgb(237, 197, 144);
+            margin :25%;
+        }
+        button{
+            text-align: center;
+            margin: 25px;
+        }
+            input{
+                margin: 20px;
+            }
+
+    </style>
+</head>
+<body>
+    
+    <form id="emailForm">
+        <input type="text" id="emailInput" placeholder="Enter your email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        $(document).ready(function() {
+    var emailPattern = /^[a-zA-Z0-9.]+@[a-z]+\.[a-zA-Z]{2,4}$/;
+    function isValidEmail(email) {
+        return emailPattern.test(email);
+    }
+    $('#emailForm').submit(function(event) {
+        event.preventDefault(); 
+        var email = $('#emailInput').val();
+        if (isValidEmail(email)) {
+            alert('Email is valid!'); 
+        } else {
+            alert('Invalid email. Please enter a valid email address.');
+        }
+    });
+});
+
+    </script>
+    
+</body>
+</html>
